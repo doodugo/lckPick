@@ -7,7 +7,8 @@ interface Props {
 
 export const MainContentsLayout = ({ children }: Props) => {
     return (
-        <div style={{marginLeft: 64}}>
+        // <div style={{marginLeft: 64}}>
+        <div>
             {children}
         </div>
     )

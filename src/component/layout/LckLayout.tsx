@@ -1,5 +1,4 @@
 import {HeaderLayout} from "@/component/layout/HeaderLayout";
-import {LeftSidebar} from "@/component/layout/LeftSidebar";
 import {ReactNode} from "react";
 import {MainContentsLayout} from "@/component/layout/MainContentsLayout";
 
@@ -15,7 +14,7 @@ export const LckLayout = ({
             <div className="flex-1 flex flex-col">
                 <HeaderLayout/>
                 <div className={'mt-5'}/>
-                <LeftSidebar/>
+                {/*<LeftSidebar/>*/}
                 <MainContentsLayout>
                     {children}
                 </MainContentsLayout>
