@@ -1,31 +1,26 @@
 'use client'
 
 
-import {useEffect, useState} from "react";
-import {Champion, UserCard} from "@/api/model/Pick";
+import {Champion} from "@/api/champion/models";
 import {ChampionSlot} from "@/component/pick/table/ChampionSlot";
+import {Dispatch, SetStateAction} from "react";
 
-export const ChampionSlotList = () => {
-    //FIXME 추후 UserInterface가 정의되면 수정되어야함
-    const [selectedUserCards, setSelectedUserCards] = useState<(UserCard | null)[]>([null, null, null, null, null]);
+interface Props {
+    selectedChampions: (Champion | null)[];
+    onChangeChampions: Dispatch<SetStateAction<(Champion | null)[]>>;
+}
 
-    useEffect(() => {
-        // FIXME 화면 초기화 뒤로가기 기능 시 데이터 유지를 위해서는 수정필요
-        setSelectedUserCards([null, null, null, null, null]);
-    }, [])
+export const ChampionSlotList = ({
+    selectedChampions,
+    onChangeChampions
+                                 }: Props) => {
+
 
     const onChangeChamp = (index: number, champ: Champion) => {
-
-        let userCard: UserCard | null | undefined = selectedUserCards.at(index);
-        if (!userCard) {
-            userCard = {champion: champ, userId: '', firstSpell: '점화', secondSpell: '점멸'}
-        } else {
-            userCard = {...userCard, champion: champ}
-        }
-        const removeIndex = selectedUserCards.findIndex(user => user?.champion.id === champ.id);
-        setSelectedUserCards(prev => {
+        const removeIndex = selectedChampions.findIndex(champion => champion?.id === champ.id);
+        onChangeChampions(prev => {
             const res = [...prev];
-            res[index] = userCard;
+            res[index] = champ;
             if(removeIndex > -1 && index !== removeIndex) {
                 res[removeIndex] = null
             }
@@ -39,31 +34,31 @@ export const ChampionSlotList = () => {
             <ChampionSlot
                 key={0}
                 index={0}
-                userCard={selectedUserCards.at(0)}
+                champion={selectedChampions.at(0)}
                 onChangeUserCard={onChangeChamp}
             />
             <ChampionSlot
                 key={1}
                 index={1}
-                userCard={selectedUserCards.at(1)}
+                champion={selectedChampions.at(1)}
                 onChangeUserCard={onChangeChamp}
             />
             <ChampionSlot
                 key={2}
                 index={2}
-                userCard={selectedUserCards.at(2)}
+                champion={selectedChampions.at(2)}
                 onChangeUserCard={onChangeChamp}
             />
             <ChampionSlot
                 key={3}
                 index={3}
-                userCard={selectedUserCards.at(3)}
+                champion={selectedChampions.at(3)}
                 onChangeUserCard={onChangeChamp}
             />
             <ChampionSlot
                 key={4}
                 index={4}
-                userCard={selectedUserCards.at(4)}
+                champion={selectedChampions.at(4)}
                 onChangeUserCard={onChangeChamp}
             />
         </div>

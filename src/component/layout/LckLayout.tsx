@@ -14,6 +14,7 @@ export const LckLayout = ({
         <div className={"flex h-screen"}>
             <div className="flex-1 flex flex-col">
                 <HeaderLayout/>
+                <div className={'mt-5'}/>
                 <LeftSidebar/>
                 <MainContentsLayout>
                     {children}

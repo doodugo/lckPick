@@ -1,21 +1,21 @@
 'use client'
 
-import {useCallback, useEffect, useRef} from "react";
-import {Champion, UserCard} from "@/api/model/Pick";
+import {useEffect, useRef} from "react";
+import {Champion} from "@/api/champion/models";
 import {useDrop} from "react-dnd";
-import {ChampionCard} from "@/component/pick/table/ChampionCard";
+import {ChampionDragCard} from "@/component/pick/table/ChampionDragCard";
 
 interface Props {
     index: number;
-    userCard?: UserCard | null;
+    champion?: Champion | null;
     onChangeUserCard: (index: number, champ: Champion) => void;
 }
 
 export const ChampionSlot = ({
     index,
-    userCard,
+     champion,
     onChangeUserCard
-                             }: Props) => {
+    }: Props) => {
     const ref = useRef<HTMLDivElement>(null);
 
     const dropChampion = (champion: Champion) => {
@@ -32,11 +32,11 @@ export const ChampionSlot = ({
 
     useEffect(() => {
         drop(ref)
-    }, [ref])
+    }, [drop, ref])
 
     return (
         <div ref={ref} key={index} className="bg-gray-800 h-20 rounded-lg flex items-center justify-center">
-            {userCard ? <ChampionCard champ={userCard.champion}/> : <p className="text-gray-500">빈 슬롯</p>}
+            {champion ? <ChampionDragCard champ={champion}/> : <p className="text-gray-500">빈 슬롯</p>}
         </div>
     )
 }

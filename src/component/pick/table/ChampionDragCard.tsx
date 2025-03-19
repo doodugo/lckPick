@@ -1,5 +1,7 @@
 'use client'
 
+import {useDrag} from "react-dnd";
+import {useEffect, useRef} from "react";
 import {Champion} from "@/api/champion/models";
 
 
@@ -7,7 +9,19 @@ interface Props {
     champ: Champion
 }
 
-export const ChampionCard = ({champ}: Props) => {
+export const ChampionDragCard = ({champ}: Props) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const [{isDragging}, drag] = useDrag({
+        type: "CHAMPION",
+        item: champ,
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+        }),
+    });
+
+    useEffect(() => {
+        drag(ref);
+    }, [drag, ref])
 
     return (
         // <div
@@ -29,10 +43,11 @@ export const ChampionCard = ({champ}: Props) => {
         //     <span className="mt-1 text-xs text-center">{champ.name}</span>
         // </div>
         <div
-            key={champ.id}
+            ref={ref}
+            key={champ.name}
             className={`
-                group relative
-               
+                group relative cursor-pointer
+                ${isDragging ? "opacity-50" : "opacity-100"}
         `}>
             <div className="w-16 h-16 rounded-md border-2 border-gray-300">
                 <img
