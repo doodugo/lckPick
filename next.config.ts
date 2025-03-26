@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
                 permanent: true
             }
         ]
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/api/lol/:path*',
+                destination: 'http://158.179.167.60/lol/:path*'
+            }
+        ]
     }
 };
 
