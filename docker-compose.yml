@@ -3,7 +3,7 @@ version: '3.8'
 services:
   nextjs:
     container_name: nextjs_app
-    image: node:22
+    image: node:22-alpine
     working_dir: /app
     volumes:
       - .:/app
@@ -13,6 +13,8 @@ services:
     command: ["sh", "-c", "npm install --frozen-lockfile && npm run build && npm run start"]
     networks:
       - my-network
+    mem_limit: 512m
+    cpus: 1
 
 # docker network create my-network
 networks:
