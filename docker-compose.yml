@@ -11,3 +11,11 @@ services:
     ports:
       - "3000:3000"
     command: ["sh", "-c", "npm install --frozen-lockfile && npm run build && npm run start"]
+    networks:
+      - my-network
+
+# docker network create my-network
+networks:
+  my-network:
+    external: true
+    name: my-network
