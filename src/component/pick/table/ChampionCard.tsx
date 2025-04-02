@@ -36,7 +36,7 @@ export const ChampionCard = ({champ}: Props) => {
         `}>
             <div className="w-16 h-16 rounded-md border-2 border-gray-300">
                 <img
-                    src={champ.imageUrl}
+                    src={champ.icon_image_url}
                     alt={champ.name}
                     className="w-full h-full object-cover"
                 />

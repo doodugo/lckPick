@@ -51,12 +51,12 @@ export const ChampionDragCard = ({champ}: Props) => {
         `}>
             <div className="w-16 h-16 rounded-md border-2 border-gray-300">
                 <img
-                    src={champ.imageUrl}
-                    alt={champ.name}
+                    src={champ.icon_image_url}
+                    alt={champ.name_local}
                     className="w-full h-full object-cover"
                 />
             </div>
-            <span className="mt-1 text-xs text-center" style={{color: 'white'}}>{champ.name}</span>
+            <span className="mt-1 text-xs text-center" style={{color: 'white'}}>{champ.name_local}</span>
         </div>
     )
 }

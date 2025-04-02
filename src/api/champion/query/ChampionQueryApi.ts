@@ -3,10 +3,10 @@ import {Champion} from "@/api/champion/models";
 
 
 const apiClient = axios.create({
-    baseURL: "/api/lol"
+    baseURL: "/lol"
 });
 
 export const queryChampionList = async (): Promise<Champion[]> => {
-    return apiClient.get("/champions")
+    return apiClient.get("/champion")
         .then(res => res.data)
 };

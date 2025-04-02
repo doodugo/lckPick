@@ -7,6 +7,16 @@ interface Props {
     onChangeSearchText: (text: string) => void;
 }
 
+const tabs = ["all", "top", "jug", "mid", "adc", "sup"];
+const tabKrName: Record<string, string> = {
+    "all": "전체",
+    "top": "탑",
+    "jug": "정글",
+    "mid": "미드",
+    "adc": "원딜",
+    "sup": "서폿",
+}
+
 export const ChampionListHeader = ({
                                        selectedTab,
                                        onChangeTab,
@@ -14,15 +24,6 @@ export const ChampionListHeader = ({
                                        onChangeSearchText,
                                    }: Props) => {
 
-    const tabs = ["all", "top", "jungle", "mid", "ads", "sub"];
-    const tabKrName: Record<string, string> = {
-        "all": "전체",
-        "top": "탑",
-        "jungle": "정글",
-        "mid": "미드",
-        "ads": "원딜",
-        "sub": "서폿",
-    }
     return (
         <div className="flex items-center border-b border-gray-300 pb-2 mb-2 justify-between">
             {/* Tabs */}

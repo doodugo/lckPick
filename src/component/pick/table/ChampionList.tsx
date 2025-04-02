@@ -21,8 +21,8 @@ export const ChampionList = () => {
     return (
         <div className="p-4 border-y border-x border-gray-300">
             <ChampionListHeader selectedTab={selectedTab} onChangeTab={onChangeTab} searchText={searchText} onChangeSearchText={onChangeSearchText}/>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-4 overflow-y-auto h-full"
-                 style={{height: '500px'}}>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4 overflow-y-auto h-full"
+                 style={{height: '500px', width: '70vw'}}>
                 {/*<div className="w-3/4 grid grid-cols-6 gap-4 p-4 bg-gray-800 rounded-lg overflow-y-auto h-full"*/}
                 {/*        style={{height: '500px'}}>*/}
                 {champions.map((champ, index) => (
