@@ -2,7 +2,7 @@
 
 import {useEffect, useRef} from "react";
 import {Champion} from "@/api/champion/models";
-import {useDrop} from "react-dnd";
+import {useDrag, useDrop} from "react-dnd";
 
 interface Props {
     index: number;
@@ -25,6 +25,13 @@ export const ChampionSlot = ({
         // Champion을 선택했을 때 발생하는 Event
         onChangeUserCard(index, champion)
     }
+    const [{isDragging}, drag] = useDrag({
+        type: "CHAMPION",
+        item: champion,
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+        }),
+    });
 
     const [, drop] = useDrop({
         accept: "CHAMPION",
@@ -32,14 +39,18 @@ export const ChampionSlot = ({
     })
 
     useEffect(() => {
+        drag(ref);
         drop(ref)
-    }, [drop, ref])
+    }, [drag, drop, ref])
 
     return (
         <div
             ref={ref}
             key={index}
-            className="bg-gray-800 h-25 rounded-lg flex items-center justify-between"
+            className={`
+            bg-gray-800 h-25 rounded-lg flex items-center justify-between
+            ${isDragging ? "opacity-50" : "opacity-100"}
+            `}
 
         >
             {/* 챔피언 이미지 */}
