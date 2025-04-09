@@ -3,6 +3,7 @@ import {Champion} from "@/api/champion/models";
 import {queryChampionList} from "@/api/champion/query/ChampionQueryApi";
 
 export const useChampions = () => {
+    const [isSearchChange, setSearchChange] = useState(false);
     const [ selectedTab, setSelectedTab ] = useState('all');
     const [ searchText, setSearchText ] = useState('');
     const [originChampions, setOriginChampions] = useState<Champion[]>([]);
@@ -33,6 +34,7 @@ export const useChampions = () => {
     const onChangeFilter = () => {
         const champions = [...originChampions]
         setChampions(champions.filter(championFilter))
+        setSearchChange(prev => !prev)
     }
 
     const championFilter = (champion: Champion) => {
@@ -47,6 +49,7 @@ export const useChampions = () => {
     }
 
     return {
+        isSearchChange,
         selectedTab,
         searchText,
         champions,

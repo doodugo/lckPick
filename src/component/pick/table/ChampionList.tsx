@@ -11,6 +11,7 @@ export const ChampionList = () => {
     //FIXME 추후 Context에 Champion들을 불러쓸 예정
 
     const {
+        isSearchChange,
         selectedTab,
         searchText,
         onChangeSearchText,
@@ -26,7 +27,11 @@ export const ChampionList = () => {
                 {/*<div className="w-3/4 grid grid-cols-6 gap-4 p-4 bg-gray-800 rounded-lg overflow-y-auto h-full"*/}
                 {/*        style={{height: '500px'}}>*/}
                 {champions.map((champ, index) => (
-                    <ChampionDragCard key={index} champ={champ}/>
+                    <ChampionDragCard
+                        key={index}
+                        isSearchChange={isSearchChange}
+                        champ={champ}
+                    />
                 ))}
             </div>
         </div>

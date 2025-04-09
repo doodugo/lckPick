@@ -6,10 +6,11 @@ import {Champion} from "@/api/champion/models";
 
 
 interface Props {
+    isSearchChange: boolean;
     champ: Champion
 }
 
-export const ChampionDragCard = ({champ}: Props) => {
+export const ChampionDragCard = ({isSearchChange, champ}: Props) => {
     const ref = useRef<HTMLDivElement>(null);
     const [{isDragging}, drag] = useDrag({
         type: "CHAMPION",
@@ -21,7 +22,7 @@ export const ChampionDragCard = ({champ}: Props) => {
 
     useEffect(() => {
         drag(ref);
-    }, [drag, ref])
+    }, [isSearchChange, drag, ref])
 
     return (
         // <div
