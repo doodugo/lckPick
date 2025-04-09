@@ -41,7 +41,7 @@ export const ChampionCard = ({champ}: Props) => {
                     className="w-full h-full object-cover"
                 />
             </div>
-            <span className="mt-1 text-xs text-center" style={{color: 'white'}}>{champ.name}</span>
+            <span className="mt-1 text-xs text-center" style={{color: 'white'}}>{champ.name_local}</span>
         </div>
     )
 }

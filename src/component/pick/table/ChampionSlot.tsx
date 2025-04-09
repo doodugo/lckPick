@@ -55,8 +55,8 @@ export const ChampionSlot = ({
 
             {/* 버튼 영역 */}
             <div className="flex flex-col gap-2 text-right">
-                <span>{line}</span>
-                <span>{champion?.name_local}</span>
+                <span style={{ color: 'white' }}>{line}</span>
+                <span style={{ color: 'white' }}>{champion?.name_local}</span>
             </div>
 
 

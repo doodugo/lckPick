@@ -46,7 +46,7 @@ export const TeamCompositionList = ({
                             <ChampionCard champ={teamComposition.mid_champion}/>
                             <ChampionCard champ={teamComposition.adc_champion}/>
                             <ChampionCard champ={teamComposition.support_champion}/>
-                            <div className={'cursor-pointer'} onClick={() => onclickTeamChampionGroup(teamComposition)}>
+                            <div className={'cursor-pointer'} style={{ color: 'white' }} onClick={() => onclickTeamChampionGroup(teamComposition)}>
                                 적용
                             </div>
                         </div>
