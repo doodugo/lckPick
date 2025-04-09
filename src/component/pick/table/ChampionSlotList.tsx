@@ -28,6 +28,14 @@ export const ChampionSlotList = ({
         })
     }
 
+    const onChangeRemoveUserCard = (index: number) => {
+        onChangeChampions(prev => {
+            const res = [...prev];
+            res[index] = null;
+            return res;
+        })
+    }
+
     // 메모리 최적화를 위해 range 금지
     return (
         <div className={"w-50 justify-center p-4 space-y-4"}>
@@ -37,6 +45,7 @@ export const ChampionSlotList = ({
                 index={0}
                 champion={selectedChampions.at(0)}
                 onChangeUserCard={onChangeChamp}
+                onChangeRemoveUserCard={onChangeRemoveUserCard}
             />
             <ChampionSlot
                 key={1}
@@ -44,6 +53,7 @@ export const ChampionSlotList = ({
                 index={1}
                 champion={selectedChampions.at(1)}
                 onChangeUserCard={onChangeChamp}
+                onChangeRemoveUserCard={onChangeRemoveUserCard}
             />
             <ChampionSlot
                 key={2}
@@ -51,6 +61,7 @@ export const ChampionSlotList = ({
                 index={2}
                 champion={selectedChampions.at(2)}
                 onChangeUserCard={onChangeChamp}
+                onChangeRemoveUserCard={onChangeRemoveUserCard}
             />
             <ChampionSlot
                 key={3}
@@ -58,6 +69,7 @@ export const ChampionSlotList = ({
                 index={3}
                 champion={selectedChampions.at(3)}
                 onChangeUserCard={onChangeChamp}
+                onChangeRemoveUserCard={onChangeRemoveUserCard}
             />
             <ChampionSlot
                 key={4}
@@ -65,6 +77,7 @@ export const ChampionSlotList = ({
                 index={4}
                 champion={selectedChampions.at(4)}
                 onChangeUserCard={onChangeChamp}
+                onChangeRemoveUserCard={onChangeRemoveUserCard}
             />
         </div>
     )

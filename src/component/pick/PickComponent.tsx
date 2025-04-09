@@ -36,7 +36,7 @@ export const PickComponent = () => {
                         <ChampionList/>
                     </DndProvider>
                 </div>
-                <div className="max-h-[800px] justify-center flex">
+                <div className="max-h-[800px] justify-center flex bg-gray-900">
                     <TeamCompositionList
                         selectedChampions={selectedChampions}
                         onclickTeamChampionGroup={onclickTeamChampionGroup}

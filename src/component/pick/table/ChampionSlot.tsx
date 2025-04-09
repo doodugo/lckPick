@@ -9,13 +9,15 @@ interface Props {
     line: string;
     champion?: Champion | null;
     onChangeUserCard: (index: number, champ: Champion) => void;
+    onChangeRemoveUserCard: (index: number) => void;
 }
 
 export const ChampionSlot = ({
     index,
      line,
      champion,
-    onChangeUserCard
+    onChangeUserCard,
+     onChangeRemoveUserCard
     }: Props) => {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -55,8 +57,16 @@ export const ChampionSlot = ({
 
             {/* 버튼 영역 */}
             <div className="flex flex-col gap-2 text-right">
-                <span style={{ color: 'white' }}>{line}</span>
-                <span style={{ color: 'white' }}>{champion?.name_local}</span>
+                <div className="flex justify-end">
+                    <button
+                        className="text-gray-500 hover:text-red-500 text-2xl font-bold focus:outline-none pr-2"
+                        onClick={() => onChangeRemoveUserCard(index)}
+                    >
+                        &times;
+                    </button>
+                </div>
+                <span style={{color: 'white'}}>{line}</span>
+                <span style={{color: 'white'}}>{champion?.name_local}</span>
             </div>
 
 
