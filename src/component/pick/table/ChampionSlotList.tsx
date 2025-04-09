@@ -30,7 +30,7 @@ export const ChampionSlotList = ({
 
     // 메모리 최적화를 위해 range 금지
     return (
-        <div className={"w-1/4 p-4 space-y-4"}>
+        <div className={"w-50 justify-center p-4 space-y-4"}>
             <ChampionSlot
                 key={0}
                 line={'TOP'}
