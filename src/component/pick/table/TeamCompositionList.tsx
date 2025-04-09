@@ -17,7 +17,7 @@ export const TeamCompositionList = ({
     const [teamCompositions, setTeamCompositions] = useState<TeamComposition[] | null>(null);
 
     useEffect(() => {
-        if(selectedChampions.some(champion => !!champion)) {
+        if (selectedChampions.some(champion => !!champion)) {
             queryTeamCompositions(selectedChampions).then(setTeamCompositions)
         }
     }, [selectedChampions]);
@@ -37,22 +37,27 @@ export const TeamCompositionList = ({
                 <span></span>
             </div>
             {
-                teamCompositions.map(teamComposition =>
-                    <div key={teamComposition.id} className="grid-cols-12 p-4 border-y border-gray-300">
-                        <div className="font-semibold" style={{color: 'white'}}> pick count: {teamComposition.pick_count} win count: {teamComposition.win_count} </div>
-                        <div className="grid grid-cols-6 gap-4 place-items-center font-medium">
-                            <ChampionCard champ={teamComposition.top_champion}/>
-                            <ChampionCard champ={teamComposition.jungle_champion}/>
-                            <ChampionCard champ={teamComposition.mid_champion}/>
-                            <ChampionCard champ={teamComposition.adc_champion}/>
-                            <ChampionCard champ={teamComposition.support_champion}/>
-                            <div className={'cursor-pointer'} style={{ color: 'white' }} onClick={() => onclickTeamChampionGroup(teamComposition)}>
-                                적용
+                teamCompositions.length > 0 ? teamCompositions.map(teamComposition =>
+                        <div key={teamComposition.id} className="grid-cols-12 p-4 border-y border-gray-300">
+                            <div className="font-semibold" style={{color: 'white'}}> pick
+                                count: {teamComposition.pick_count} win count: {teamComposition.win_count} </div>
+                            <div className="grid grid-cols-6 gap-4 place-items-center font-medium">
+                                <ChampionCard champ={teamComposition.top_champion}/>
+                                <ChampionCard champ={teamComposition.jungle_champion}/>
+                                <ChampionCard champ={teamComposition.mid_champion}/>
+                                <ChampionCard champ={teamComposition.adc_champion}/>
+                                <ChampionCard champ={teamComposition.support_champion}/>
+                                <div className={'cursor-pointer'} style={{color: 'white'}}
+                                     onClick={() => onclickTeamChampionGroup(teamComposition)}>
+                                    적용
+                                </div>
                             </div>
                         </div>
+                    )
+                    :
+                    <div style={{color: 'white'}}>
+                        기록상 나온적 없는 조합입니다.
                     </div>
-                )
-
             }
         </div>
     )
