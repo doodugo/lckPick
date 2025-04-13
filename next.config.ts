@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
             {
                 source: "/",
                 destination: "/pick",
-                permanent: true
+                permanent: false
             }
         ]
     },
@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
             {
                 source: '/lol/champion/:path*',
                 destination: 'http://158.179.167.60/api/lol/champions/:path*/',
+
             },
             {
                 source: '/lol/team-composition/:path*',
