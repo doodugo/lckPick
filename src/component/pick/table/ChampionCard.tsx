@@ -1,4 +1,4 @@
-'use server'
+'use client'
 
 import {Champion} from "@/api/champion/models";
 
