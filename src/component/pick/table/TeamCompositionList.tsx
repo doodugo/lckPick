@@ -1,3 +1,5 @@
+'use server'
+
 import {Champion} from "@/api/champion/models";
 import {useEffect, useState} from "react";
 import {TeamComposition} from "@/api/team/models";
