@@ -9,6 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="KnpuoeescFevb8JfTtF95jr_TqNeJdRJhZ0HveSXgso" />
+      </head>
         <body>
             <LckLayout>
                 {children}
